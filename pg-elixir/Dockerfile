@@ -12,9 +12,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # end include buildpack-deps:jessie-curl Dockerfile #
 #####################################################
 
-######################################################
-# init include buildpack-deps:jessie-deps Dockerfile #
-######################################################
+#####################################################
+# init include buildpack-deps:jessie-scm Dockerfile #
+#####################################################
 # procps is very common in build systems, and is a reasonably small package
 RUN apt-get update && apt-get install -y --no-install-recommends \
     bzr \
@@ -25,13 +25,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     \
     procps \
     && rm -rf /var/lib/apt/lists/*
-#####################################################
-# end include buildpack-deps:jessie-deps Dockerfile #
-#####################################################
+####################################################
+# end include buildpack-deps:jessie-scm Dockerfile #
+####################################################
 
-#####################################################
-# init include buildpack-deps:jessie-scm Dockerfile #
-#####################################################
+#################################################
+# init include buildpack-deps:jessie Dockerfile #
+#################################################
 RUN apt-get update && apt-get install -y --no-install-recommends \
     autoconf \
     automake \
@@ -69,9 +69,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xz-utils \
     zlib1g-dev \
     && rm -rf /var/lib/apt/lists/*
-####################################################
-# end include buildpack-deps:jessie-scm Dockerfile #
-####################################################
+################################################
+# end include buildpack-deps:jessie Dockerfile #
+################################################
 
 #########################################
 # init include erlang:19.0.1 Dockerfile #
@@ -138,7 +138,7 @@ RUN set -xe \
   && install -v ./rebar3 /usr/local/bin/ \
   && rm -rf /usr/src/rebar3-src
 ####################################
-# end include erlang:19 Dockerfile #
+# end include erlang:19.0.1 Dockerfile #
 ####################################
 
 ########################################
@@ -165,5 +165,5 @@ RUN set -xe \
 
 CMD ["iex"]
 #####################################
-# end include elixir:1.3 Dockerfile #
+# end include elixir:1.3.2 Dockerfile #
 #####################################
